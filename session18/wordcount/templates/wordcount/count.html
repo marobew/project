@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'result' %}" method="GET">
+  <div class="form-group">
+    <h3>wordcount</h3>
+    <textarea name="fulltext" class="form-control mt-4" id="exampleFormControlTextarea1" rows="20"></textarea>
+  </div>
+    <input class='btn btn-dark btn-block' type='submit' value='제출하기'>
+</form>
+{% endblock %}

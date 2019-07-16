@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card border-light mb-3">
+  <div class="card-header">입력한 문장은 총 {{total}}단어 입니다. </div>
+  <div class="card-body">
+    <h5 class="card-title">입력한 문장</h5>
+    <p class="card-text">{{fulltext}}</p>
+  </div>
+    <ul class="list-group list-group-flush">
+        {% for word, count in dict%}
+        <li class="list-group-item">{{word}} - {{count}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

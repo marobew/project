@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- 예외 상황  -->
+{% if error %}
+{{ error }}
+<br>
+<br>
+{% endif %}
+
+<h1 class="text-center">Sign Up!</h1>
+<form method="POST" action="{% url 'signup' %}">
+  <div class="form-group">
+    <label>User Name</label>
+    {% csrf_token %}
+    <input name="username" class="form-control" placeholder="User Name">
+    <small id="emailHelp" class="form-text text-muted">Hi Everyone!</small>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input name="password1" type="password" class="form-control" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label>Confirm Password</label>
+    <input name="password2" type="password" class="form-control" placeholder="Confirm Password">
+  </div>
+
+  <input class="btn btn-dark btn-block" type="submit" value="submit">
+</form>
+{% endblock %}

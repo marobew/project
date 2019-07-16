@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for board in posts %}
+<div class="card" onClick="location.href ='{% url 'detail' board.id %}'" style="cursor:pointer;">
+  <div class="card-body">
+    <h5 class="card-title">{{ board.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ board.pub_date }}</h6>
+      <p class="card-text">{{ board.summary }}...</p>
+  </div>
+</div>
+<br>
+{% endfor %}
+<div class="text-center">
+{%if posts.has_previous%}
+<a href="?page=1">First</a>
+<a href="?page={{posts.previous_page_number}}">Previous</a>
+{%endif%}
+
+<span>{{posts.number}}</span>
+<span>of</span>
+<span>{{posts.paginator.num_pages}}</span>
+
+{%if posts.has_next%}
+<a href="?page={{posts.next_page_number}}">Next</a>
+<a href="?page={{posts.paginator.num_pages}}">Last</a>
+{%endif%}
+</div>
+
+{% endblock %}
